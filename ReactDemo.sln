@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDemo", "ReactDemo\ReactDemo.csproj", "{C6375AE4-5DA2-41C0-AFC9-75F4FCB25361}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRepository", "DBRepository\DBRepository.csproj", "{F9DFC7B9-774D-4272-97B0-2F6DC7CC986E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{55531CBE-91DB-48F0-BD3A-CA1A849CEE98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C6375AE4-5DA2-41C0-AFC9-75F4FCB25361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6375AE4-5DA2-41C0-AFC9-75F4FCB25361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6375AE4-5DA2-41C0-AFC9-75F4FCB25361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DFC7B9-774D-4272-97B0-2F6DC7CC986E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DFC7B9-774D-4272-97B0-2F6DC7CC986E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DFC7B9-774D-4272-97B0-2F6DC7CC986E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DFC7B9-774D-4272-97B0-2F6DC7CC986E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55531CBE-91DB-48F0-BD3A-CA1A849CEE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55531CBE-91DB-48F0-BD3A-CA1A849CEE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55531CBE-91DB-48F0-BD3A-CA1A849CEE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55531CBE-91DB-48F0-BD3A-CA1A849CEE98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,4 +19,9 @@
     <PackageReference Include="React.AspNet" Version="5.2.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DBRepository\DBRepository.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
 </Project>
