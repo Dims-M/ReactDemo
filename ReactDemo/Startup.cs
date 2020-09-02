@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Http;
 using JavaScriptEngineSwitcher.V8;
 using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
 using React.AspNet;
+using DBRepository.Interfaces;
+using DBRepository.Factories;
+using DBRepository.Repositories;
 
 namespace ReactDemo
 {
@@ -27,6 +30,11 @@ namespace ReactDemo
         // Этот метод вызывается средой выполнения. Используйте этот метод для добавления служб в контейнер.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Для работы с БД и Repository
+            services.AddScoped<IRepositoryContextFactory, RepositoryContextFactory>(); // 1
+            services.AddScoped<IBlogRepository>(provider => new BlogRepository(Configuration.GetConnectionString("DefaultConnection"), provider.GetService<IRepositoryContextFactory>())); // 2
+
+
             services.AddControllersWithViews(); // подключение контроллера
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -51,12 +59,16 @@ namespace ReactDemo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseMvc();
             app.UseHttpsRedirection();
             app.UseStaticFiles(); //подключение статических файлов 
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            
 
             // Инициализировать ReactJS.NET. Должно быть, после чем статические файлы.
             app.UseReact(config =>

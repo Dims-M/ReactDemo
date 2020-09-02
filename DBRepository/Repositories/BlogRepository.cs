@@ -27,6 +27,8 @@ namespace DBRepository.Repositories
 		/// <returns></returns>
 		public async Task<Page<Post>> GetPosts(int index, int pageSize, string tag = null)
 		{
+
+			//LINQ методы выполняются lazy, и поэтому само обращение к базе будет только после вызова метода ToListAsync  (и CountAsync)
 			//модель дто
 			var result = new Page<Post>() { CurrentPage = index, PageSize = pageSize };
 
@@ -39,7 +41,7 @@ namespace DBRepository.Repositories
 				}
 
 				result.TotalPages = await query.CountAsync(); // получаем количество элементов
-				// приводим к листу сортируем и получаем все значения по тэгу 
+				// приводим к листу сортируем и получаем все значения по тэгу (с помощью метода Include)
 				result.Records = await query.Include(p => p.Tags).Include(p => p.Comments).OrderByDescending(p => p.CreatedDate).Skip(index * pageSize).Take(pageSize).ToListAsync();
 			}
 
