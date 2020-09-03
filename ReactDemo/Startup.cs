@@ -60,7 +60,7 @@ namespace ReactDemo
                 app.UseHsts();
             }
 
-            app.UseMvc();
+           // app.UseMvc();
             app.UseHttpsRedirection();
             app.UseStaticFiles(); //подключение статических файлов 
 
@@ -68,10 +68,10 @@ namespace ReactDemo
 
             app.UseAuthorization();
 
-            
+           
 
-            // Инициализировать ReactJS.NET. Должно быть, после чем статические файлы.
-            app.UseReact(config =>
+        // Инициализировать ReactJS.NET. Должно быть, после чем статические файлы.
+        app.UseReact(config =>
             {
                 // If you want to use server-side rendering of React components,
                 // add all the necessary JavaScript files here. This includes
@@ -89,6 +89,13 @@ namespace ReactDemo
                 //  .SetLoadBabel(false)
                 //  .AddScriptWithoutTransform("~/js/bundle.server.js");
             });
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
 
 
             app.UseEndpoints(endpoints =>
